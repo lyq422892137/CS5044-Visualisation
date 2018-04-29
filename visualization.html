@@ -408,13 +408,13 @@
 
 				updateButton1.append("rect")
 								.style("fill","white")
-								.attr("width", 85)
+								.attr("width", 90)
 								.attr("height", 22)
-								.attr("x",940)
+								.attr("x",850)
 								.attr("y",52);
 				updateButton1.append("text")
 								.text("Enter 2010")
-								.attr("x", "941")
+								.attr("x", "851")
 								.attr("y", "70");
 
 
@@ -427,14 +427,14 @@
 
 				updateButton2.append("rect")
 								.style("fill","lightgrey")
-								.attr("width", 85)
+								.attr("width", 90)
 								.attr("height", 22)
-								.attr("x",940)
+								.attr("x",850)
 								.attr("y",120);
 
 				updateButton2.append("text")
 								.text("Enter 2011")
-								.attr("x", "941")
+								.attr("x", "851")
 								.attr("y", "137");
 
 				var updateButton3 = svgElement.append("g")
@@ -446,13 +446,13 @@
 
 				updateButton3.append("rect")
 								.style("fill","white")
-								.attr("width", 85)
+								.attr("width", 90)
 								.attr("height", 22)
-								.attr("x",940)
+								.attr("x",850)
 								.attr("y",192);
 				updateButton3.append("text")
 								.text("Enter 2012")
-								.attr("x", "941")
+								.attr("x", "851")
 								.attr("y", "208");
 
 
@@ -465,13 +465,13 @@
 
 				updateButton4.append("rect")
 								.style("fill","lightgrey")
-								.attr("width", 85)
+								.attr("width", 90)
 								.attr("height", 22)
-								.attr("x",940)
+								.attr("x",850)
 								.attr("y",260);
 				updateButton4.append("text")
 								.text("Enter 2013")
-								.attr("x", "941")
+								.attr("x", "851")
 								.attr("y", "277");
 
 
@@ -484,13 +484,13 @@
 
 				updateButton5.append("rect")
 								.style("fill","white")
-								.attr("width", 85)
+								.attr("width", 90)
 								.attr("height", 22)
-								.attr("x",940)
+								.attr("x",850)
 								.attr("y",330);
 				updateButton5.append("text")
 								.text("Enter 2014")
-								.attr("x", "941")
+								.attr("x", "851")
 								.attr("y", "347");
 
 
@@ -662,11 +662,10 @@
 			        	.data(dataset)
 			        	.enter()
 			        	.append("text")
-				        	.attr("x",160)
+				        	.attr("x",140)
 				        	.attr("y",function (d,i) {
 					        	return i*25+95;
                	        	 })
-
                	        	 .style("font-size","20")
                				 .style("font-family","Impact")
                				 .style("fill","teal")
@@ -729,28 +728,12 @@
                     })
 
 
-			<!--attach the labels-->
-			svgElement.append("g")
-				.selectAll("text")
-				.data(yearpm)
-				.enter()
-				.append("text")
-					.attr("x",850)
-					.attr("y",function (d,i) {
-						return i*70+70;
-               		 })
-               		 .style("font-size","20")
-               		 .style("font-family","Impact")
-					.text(function (d) {
-						return ("Year: " + d.year);
-               		 });
-
 			<!--------------------------------->
 
 		});
 
 		</script>
-<a style="margin-left:500" href="index.html" class="button">Back to Home Page</a>
+<a style="margin-left:40%" href="index.html" class="button">Back to Home Page</a>
 <a style="margin-left:80" href="visualization.html" class="button">Reset</a>
 
 
