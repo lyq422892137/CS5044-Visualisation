@@ -26,9 +26,7 @@
 				stroke-width: 2px;
 				opacity: 0.6;
 			}
-			circle.monthpm{
-			fill: DeepPink;
-			}
+
 			circle.yearpm {
 				fill: DeepPink;
 			}
@@ -60,6 +58,10 @@
 				height: 100%;
 			}
 
+			text {
+			font-size:16px;
+			font-family:Georgia;
+			}
 
 		</style>
 
@@ -377,7 +379,7 @@
 										});
 
 				updateButton1.append("rect")
-								.style("fill","lightgrey")
+								.style("fill","white")
 								.attr("width", 85)
 								.attr("height", 22)
 								.attr("x",940)
@@ -415,7 +417,7 @@
 										});
 
 				updateButton3.append("rect")
-								.style("fill","lightgrey")
+								.style("fill","white")
 								.attr("width", 85)
 								.attr("height", 22)
 								.attr("x",940)
@@ -453,7 +455,7 @@
 										});
 
 				updateButton5.append("rect")
-								.style("fill","lightgrey")
+								.style("fill","white")
 								.attr("width", 85)
 								.attr("height", 22)
 								.attr("x",940)
@@ -472,28 +474,25 @@
 			function update(dat, index)
 			{
 				  <!--svgElement.remove();-->
-				  d3.select("svg").remove();
-				  	var pm25NW = 0;
-					var pm25SE = 0 ;
-					var pm25CV = 0
-					var pm25NE = 0;
+				 	 d3.select("svg").remove();
 
-				  var windpm = new Array();
+				  	var pm25NW = new Array();
+					var pm25SE = new Array() ;
+					var pm25CV = new Array();
+					var pm25NE = new Array();
 
-				  	var Jan = 0;
-					var Feb = 0 ;
-					var Mar = 0
-					var Apr = 0;
-					var May = 0;
-					var Jun = 0 ;
-					var Jul = 0
-					var Aug = 0;
-					var Sep = 0;
-					var Oct = 0 ;
-					var Nov = 0
-					var Dec = 0;
-
-				   var monthpm = new Array();
+				  	var Jan = new Array();
+					var Feb = new Array() ;
+					var Mar = new Array()
+					var Apr = new Array();
+					var May = new Array();
+					var Jun = new Array() ;
+					var Jul = new Array();
+					var Aug = new Array();
+					var Sep = new Array();
+					var Oct = new Array();
+					var Nov = new Array();
+					var Dec = new Array();
 
 
 				  var j = 0;
@@ -509,39 +508,39 @@
 
 				  for(j ; j<dat.length; j++) {
 				    if(dat[j].cbwd == "NW") {
-				        pm25NW = pm25NW + parseFloat(dat[j].pm25)
+				        pm25NW[j] =  parseFloat(dat[j].pm25)
 				     } else if (dat[j].cbwd == "SE") {
-				        pm25SE = pm25SE + parseFloat(dat[j].pm25)
+				        pm25SE[j] =  parseFloat(dat[j].pm25)
 				     } else if (dat[j].cbwd == "cv"){
-				        pm25CV = pm25CV + parseFloat(dat[j].pm25)
+				        pm25CV[j] =  parseFloat(dat[j].pm25)
 				     } else {
-				        pm25NE = pm25NE + parseFloat(dat[j].pm25)
+				        pm25NE[j] =  parseFloat(dat[j].pm25)
 				     }
 
   					if(dat[j].month == "1") {
-				        Jan = Jan + parseFloat(dat[j].pm25)
+				        Jan[j] = parseFloat(dat[j].pm25)
 				     } else if(dat[j].month == "2") {
-				    	 Feb = Feb + parseFloat(dat[j].pm25)
+				    	 Feb[j] = parseFloat(dat[j].pm25)
 				     } else if(dat[j].month == "3") {
-				    	 Mar = Mar + parseFloat(dat[j].pm25)
+				    	 Mar[j] =  parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "4") {
-				    	 Apr = Apr + parseFloat(dat[j].pm25)
+				    	 Apr[j] =  parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "5") {
-				    	 May = May + parseFloat(dat[j].pm25)
+				    	 May[j] =  parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "6") {
-				    	 Jun = Jun + parseFloat(dat[j].pm25)
+				    	 Jun[j] =  parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "7") {
-				    	 Jul = Jul + parseFloat(dat[j].pm25)
+				    	 Jul[j] =  parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "8") {
-				    	 Aug = Aug + parseFloat(dat[j].pm25)
+				    	 Aug[j] = parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "9") {
-				    	 Sep = Sep + parseFloat(dat[j].pm25)
+				    	 Sep[j] = parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "10") {
-				    	 Oct = Oct + parseFloat(dat[j].pm25)
+				    	 Oct[j] =  parseFloat(dat[j].pm25)
 				     }else if(dat[j].month == "11") {
-				    	 Nov = Nov+ parseFloat(dat[j].pm25)
+				    	 Nov[j] = parseFloat(dat[j].pm25)
 				     } else if(dat[j].month == "12") {
-				    	 Dec = Dec + parseFloat(dat[j].pm25)
+				    	 Dec[j] = parseFloat(dat[j].pm25)
 				     }
 
 
@@ -551,47 +550,26 @@
 
 				var dataset = new Array();
 
-				dataset [0] = {"key": "NW", "count":  (pm25NW/1000).toFixed(2)}
-		        dataset [1] = {"key": "SE", "count":  (pm25SE/1000).toFixed(2)}
-		        dataset [2] = {"key": "CV", "count":  (pm25CV/1000).toFixed(2)}
-		        dataset [3] = {"key": "NE", "count":  (pm25NE/1000).toFixed(2)}
+				dataset [0] = {"key": "NorthWest", "count":  d3.mean(pm25NW).toFixed(2)}
+		        dataset [1] = {"key": "SouthEast", "count":  d3.mean(pm25SE).toFixed(2)}
+		        dataset [2] = {"key": "NoWind", "count":  d3.mean(pm25CV).toFixed(2)}
+		        dataset [3] = {"key": "NorthEast", "count":  d3.mean(pm25NE).toFixed(2)}
 
 				dataset [4] = {"key": null, "count":  null}
-  				dataset [5] = {"key": "January", "count":  (Jan/1000).toFixed(2)}
-		        dataset [6] = {"key": "February", "count":  (Feb/1000).toFixed(2)}
-		        dataset [7] = {"key": "March", "count":  (Mar/1000).toFixed(2)}
-		        dataset [8] = {"key": "April", "count":  (Apr/1000).toFixed(2)}
-		        dataset [9] = {"key": "May", "count":  (May/1000).toFixed(2)}
-		        dataset [10] = {"key": "June", "count":  (Jun/1000).toFixed(2)}
-		        dataset [11] = {"key": "July", "count":  (Jul/1000).toFixed(2)}
-		        dataset [12] = {"key": "August", "count":  (Aug/1000).toFixed(2)}
-		        dataset [13] = {"key": "September", "count":  (Sep/1000).toFixed(2)}
-		        dataset [14] = {"key": "October", "count":  (Oct/1000).toFixed(2)}
-		        dataset [15] = {"key": "November", "count":  (Nov/1000).toFixed(2)}
-		        dataset [16] = {"key": "December", "count":  (Dec/1000).toFixed(2)}
-
-		        <!--windpm[0] = {"key": "NW", "count":  (pm25NW/1000).toFixed(2)}-->
-		        <!--windpm[1] = {"key": "SE", "count":  (pm25SE/1000).toFixed(2)}-->
-		        <!--windpm[2] = {"key": "CV", "count":  (pm25CV/1000).toFixed(2)}-->
-		        <!--windpm[3] = {"key": "NE", "count":  (pm25NE/1000).toFixed(2)}-->
+  				dataset [5] = {"key": "January", "count":  d3.mean(Jan).toFixed(2)}
+		        dataset [6] = {"key": "February", "count":  d3.mean(Feb).toFixed(2)}
+		        dataset [7] = {"key": "March", "count":  d3.mean(Mar).toFixed(2)}
+		        dataset [8] = {"key": "April", "count":  d3.mean(Apr).toFixed(2)}
+		        dataset [9] = {"key": "May", "count":  d3.mean(May).toFixed(2)}
+		        dataset [10] = {"key": "June", "count":  d3.mean(Jun).toFixed(2)}
+		        dataset [11] = {"key": "July", "count":  d3.mean(Jul).toFixed(2)}
+		        dataset [12] = {"key": "August", "count":  d3.mean(Aug).toFixed(2)}
+		        dataset [13] = {"key": "September", "count":  d3.mean(Sep).toFixed(2)}
+		        dataset [14] = {"key": "October", "count":  d3.mean(Oct).toFixed(2)}
+		        dataset [15] = {"key": "November", "count":  d3.mean(Nov).toFixed(2)}
+		        dataset [16] = {"key": "December", "count":  d3.mean(Dec).toFixed(2)}
 
 
-  				<!--monthpm[0] = {"key": 1, "count":  (Jan/1000).toFixed(2)}-->
-		        <!--monthpm[1] = {"key": 2, "count":  (Feb/1000).toFixed(2)}-->
-		        <!--monthpm[2] = {"key": 3, "count":  (Mar/1000).toFixed(2)}-->
-		        <!--monthpm[3] = {"key": 4, "count":  (Apr/1000).toFixed(2)}-->
-		        <!--monthpm[4] = {"key": 5, "count":  (May/1000).toFixed(2)}-->
-		        <!--monthpm[5] = {"key": 6, "count":  (Jun/1000).toFixed(2)}-->
-		        <!--monthpm[6] = {"key": 7, "count":  (Jul/1000).toFixed(2)}-->
-		        <!--monthpm[7] = {"key": 8, "count":  (Aug/1000).toFixed(2)}-->
-		        <!--monthpm[8] = {"key": 9, "count":  (Sep/1000).toFixed(2)}-->
-		        <!--monthpm[9] = {"key": 10, "count":  (Oct/1000).toFixed(2)}-->
-		        <!--monthpm[10] = {"key": 11, "count":  (Nov/1000).toFixed(2)}-->
-		        <!--monthpm[11] = {"key": 12, "count":  (Dec/1000).toFixed(2)}-->
-
-
-				console.log(monthpm);
-				console.log(windpm);
 				<!----------------->
 
 
@@ -605,7 +583,7 @@
 					.append("rect")
 					    .style("fill","gold")
 						.attr("width",function (d) {
-							return d.count * 3 ;
+							return d.count * 6 ;
                         })
 						.attr("height",20)
 						.attr("x",250)
@@ -616,6 +594,7 @@
                     .on("mouseenter",function(d,i) {
 					    d3.select(this)
 							.transition()
+
 							.duration(200)
 							.style("fill","green");
 					    console.log(d);
@@ -623,8 +602,20 @@
 				    d3.select("svg")
 							.append("text")
 							.attr("class","tooltip")
-							.attr("x",20)
-							.style("fill","green")
+							.attr("x",250+20+(d.count*6))
+							.style("font-size", "20px")
+							 .style("font-weight","bold")
+							 .style("font-family","Tahoma")
+							.style("fill",function() {
+								if (d.count >=110) {
+								return ("red");
+								} else if (d.count>=90)
+								{
+								return ("orange");
+								} else {
+								return ("lightgreen");
+								}
+							})
 							.attr("y",(i*25)+95)
 							.text("	 PM2.5 :" + d.count);
 
@@ -648,6 +639,9 @@
 				        	.attr("y",function (d,i) {
 					        	return i*25+95;
                	        	 })
+
+               	        	 .style("font-size","20")
+               				 .style("font-family","Impact")
 				        	.text(function (d) {
 					        	return (d.key);
                	        	 });
@@ -683,7 +677,17 @@
 							.append("text")
 							.attr("class","tooltip")
 							.attr("x",50+1120)
-							.style("fill","green")
+							 .style("font-weight","bold")
+							.style("fill",function() {
+								if (d.count >=100) {
+								return ("red");
+								} else if (d.count>=95)
+								{
+								return ("orange");
+								} else {
+								return ("lightgreen");
+								}
+							})
 							.attr("y",(i*70+95))
 							.text("	 PM2.5 :" + d.count);
 
@@ -707,6 +711,8 @@
 					.attr("y",function (d,i) {
 						return i*70+70;
                		 })
+               		 .style("font-size","20")
+               		 .style("font-family","Impact")
 					.text(function (d) {
 						return ("Year: " + d.year);
                		 });
