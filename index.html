@@ -4,16 +4,87 @@
     <meta charset="UTF-8">
 
     <title>PM2.5, Temperature? Wind? Time?</title>
+    <style>
+        h1{
+        text-align:center;
+        font-size:40px;
+	    font-family:Impact;
+        }
+        h2{
+         text-align:center;
+        }
+
+         a{
+            text-decoration: none;
+             margin-right: 50px;
+             font-size:20px;
+             font-family:Century Gothic;
+             font-weight: bold;
+             color: white;
+            }
+
+         text{
+         font-family:Century Gothic;
+         color: Silver;
+
+         }
+
+         body{
+         background-size: 100% 100%;
+         background-image: url(1.jpg);
+         }
+
+         b{
+         color:white;
+         }
+
+    </style>
 </head>
 
 <body>
+<a   href="visualization.html" class="button">Enter</a>
+<a  href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data" class="button">DataSet</a>
+<h1>What are relevant to PM2.5 in Beijing</h1>
+<h2>—— Temperatures? Wind Directions? Time? </h2>
 
-<h1>PM2.5, Temperature? Wind? Time?</h1>
+<h3 style="color: teal">Introduction</h3>
+<text>
+    Air pollution has been a global concern for many years. As an important index of air pollution, PM2.5 (Particulates) is discussed in China for years.
+    <b>The visualisation focuses on average PM2.5 in Beijing (Beijing Capital International Airport included) from 2010 to 2014.</b>
+    The data set is taken from US Embassy in Beijing.
+    This visualisation can be used to: <br><br>
+    (1) explore relationships between <b>temperatures and annual average PM2.5</b>;<br>
+    (2) compare <b>annual average PM2.5 from 2010 to 2014</b>;<br>
+    (3) explore relationships between <b>wind directions and PM2.5 in a year</b>;<br>
+    (4) compare<b> monthly average PM2.5 in a year</b>.<br>
+</text>
+<h3 style="color: teal">How to use the visualisation</h3>
 
-This is the project index page.<br><br>
+<text>
+    Click left -top "<b>Dataset</b> " can view the UCI page which supplies the original data set.<br><br>
+    Click left -top "<b>Enter</b>" can view the visualisation.<br>
+    The left line chart contains tendency of annual average PM2.5, temperatures, and atmospheric pressure from 2010 to 2014.<br>
+    The right bar chart shows average PM2.5 of each year.<br><br>
 
-<a href="visualization.html" class="button">Enter</a>
-<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data" class="button">DataSet</a>
+    After enter the visualisation, click right "<b>Enter XXXX</b>" (e.g. Enter 2010) can see detailed PM2.5 information in the year.<br>
+    The first four bars present average PM2.5 with different wind directions in this year;<br>
+    The last twelve bars present monthly average PM2.5 in this year.<br><br>
 
+    Roll over any bar can show numeric values of PM2.5.<br><br>
+
+    Click "<b>Reset</b>" will reset the visualisation.<br><br>
+
+</text>
+
+<h3 style="color: teal">Other Information Links</h3>
+<a  style="font-size:16px;" href="https://en.wikipedia.org/wiki/Particulates" class="button">What is PM2.5</a>
+<a  style="font-size:16px;" href="http://aqicn.org/city/beijing/" class="button">PM2.5 report by US Embassy in Beijing</a>
+<a  style="font-size:16px;" href="https://www.bbc.co.uk/search?q=pm2.5" class="button">BBC News about PM2.5 </a>
+<a  style="font-size:16px;" href="https://scholar.google.com/scholar?hl=zh-CN&as_sdt=0%2C5&q=pm2.5&btnG=" class="button">Academic articles about PM2.5 </a>
+<a  style="font-size:16px;" href="https://www.gettyimages.in/photos/pm2.5?sort=mostpopular&mediatype=photography&phrase=pm2.5" class="button">Photos about PM2.5 </a>
+
+<text>
+
+</text>
 </body>
 </html>
