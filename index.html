@@ -38,6 +38,7 @@
          color:white;
          }
 
+
     </style>
 </head>
 
@@ -50,33 +51,164 @@
 <h3 style="color: teal">Introduction</h3>
 <text>
     Air pollution has been a global concern for many years. As an important index of air pollution, PM2.5 (Particulates) is discussed in China for years.
+    Even citizens who do not work on air pollutions field are interested at PM2.5 research.
     <b>The visualisation focuses on average PM2.5 in Beijing (Beijing Capital International Airport included) from 2010 to 2014.</b>
-    The data set is taken from US Embassy in Beijing.
-    This visualisation can be used to: <br><br>
+    The data set is taken from US Embassy in Beijing.<br><br>
+    <b>This visualisation can help people who are interested at PM2.5' causation to</b>: <br><br>
     (1) explore relationships between <b>temperatures and annual average PM2.5</b>;<br>
     (2) compare <b>annual average PM2.5 from 2010 to 2014</b>;<br>
     (3) explore relationships between <b>wind directions and PM2.5 in a year</b>;<br>
     (4) compare<b> monthly average PM2.5 in a year</b>.<br>
+
+
 </text>
-<h3 style="color: teal">How to use the visualisation</h3>
+
+</text>
+<h3 style="color: teal">Data Information and Questions</h3>
+<text>
+    This visualisation contains 43,825 data with six attributes.<br><br>
+    <table align="center" valign="middle" border="1">
+        <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Missing Values</th>
+            <th>Range</th>
+        </tr>
+        <tr>
+            <td>Year</td>
+            <td>Categorical</td>
+            <td>No</td>
+            <td>[2010,2014]</td>
+        </tr>
+        <tr>
+            <td>Month</td>
+            <td>Categorical</td>
+            <td>No</td>
+            <td>[1,12]</td>
+        </tr>
+        <tr>
+            <td>PM2.5</td>
+            <td>Quantitative</td>
+            <td>Account for 4.71%. Imputed by the mean value</td>
+            <td>[0,994]</td>
+        </tr>
+        <tr>
+            <td>Temperature</td>
+            <td>Quantitative</td>
+            <td>No</td>
+            <td>[-19,42]</td>
+        </tr>
+        <tr>
+            <td>Atmospheric Pressure</td>
+            <td>Quantitative</td>
+            <td>No</td>
+            <td>[991,1046]</td>
+        </tr>
+        <tr>
+            <td>Combined Wind Direction</td>
+            <td>Categorical</td>
+            <td>No</td>
+            <td>NorthWest(NW), NorthEast(NE), SouthEast(SE), NoWind(CV)</td>
+        </tr>
+    </table>
+    <br><br>
+    Questions to be Answered:<br>
+    (1) Are temperatures relevant to PM2.5?<br>
+    (2) Are combined wind directions relevant to PM2.5?<br>
+    (3) Are months(seasons) relevant to PM2.5?<br><br>
+</text>
+
+
+<h3 style="color: teal">How to use the visualisation (Interactions)</h3>
 
 <text>
-    Click left -top "<b>Dataset</b> " can view the UCI page which supplies the original data set.<br><br>
-    Click left -top "<b>Enter</b>" can view the visualisation.<br>
+    Click left -top "<b>Dataset</b> " button can view the UCI page which supplies the original data set.<br><br>
+    Click left -top "<b>Enter</b>" button can view the visualisation.<br>
     The left line chart contains tendency of annual average PM2.5, temperatures, and atmospheric pressure from 2010 to 2014.<br>
+    Click points on the line chart can mark them red. <br>
     The right bar chart shows average PM2.5 of each year.<br><br>
 
-    After enter the visualisation, click right "<b>Enter XXXX</b>" (e.g. Enter 2010) can see detailed PM2.5 information in the year.<br>
+    After enter the visualisation, click right "<b>Enter XXXX</b>" (e.g. Enter 2010) button can see detailed PM2.5 information in the year.<br>
     The first four bars present average PM2.5 with different wind directions in this year;<br>
     The last twelve bars present monthly average PM2.5 in this year.<br><br>
 
-    Roll over any bar can show numeric values of PM2.5.<br><br>
+    Roll over any bar can show a numeric value of PM2.5.<br><br>
 
-    Click "<b>Reset</b>" will reset the visualisation.<br><br>
+    Click "<b>Reset</b>" button will reset the visualisation.<br><br>
+
 
 </text>
 
-<h3 style="color: teal">Other Information Links</h3>
+<h3 style="color: teal">Description of Visual Variables</h3>
+<text>
+    There are mainly three part of the visualisation.
+    When enter the visualisation:
+    (1) The line chart on the left; (2) The bar chart on the right;
+    When enter the detailed information in a year:
+    (3) Two bar charts for wind direction - PM2.5 and month - PM2.5.<br><br>
+
+    For (1), position is used to show values of PM2.5, temperatures, and pressures.
+    Three colors are used to help distinguish three attributes.
+    In case readers have difficulties to tell colors, annotations are used.
+
+    Because air pollutions can be influenced by pressures to an extent,
+    the stable pressure line here can give a reference to readers to exclude the potential variable.
+
+    Because the point is to see whether temperatures and PM2.5 are relevant by their tendencies,
+    temperatures are multiplied by 8. Similarly, pressures are multiplied by 10.
+    <br><br>
+
+    For (2), sizes and colors are used for comparison. Readers can see bars to have an intuitive feeling of PM2.5 values.
+    Then, by putting a mouse on bars, people can see values of PM2.5. Green is for good air conditions, yellow is bad, while
+    red means serious pollutions.<br><br>
+
+    For (3), similar with (2), sizes and colors are used.
+    To implement (3), only one array is used for both wind-PM2.5 and month-PM2.5 charts, which may violate some thoughts of programming.
+    The reason is to avoid visual errors caused by different measuring scales. If both charts use different scales, confusions may
+    occur (e.g. a bar for PM2.5 = 90 is longer than another bar for PM2.5 =95). Similarly, only one color is applied to all bars.
+
+    <br><br>
+</text>
+
+<h3 style="color: teal">Materials used for Implementation</h3>
+<text>
+    Basically, the visualisation is based on code of 5044 tutorials
+    (especially linegraph.html, visualElements.html, and basicInteraction_final).
+    To finish this visualisation, googled online materials about CSS, HTML basics (such as creating tables on a HTML page) are referred.
+    In addition, lecture notes and <i>Tamara Munzner. Visualization Design and Analysis. 2015; Chapter 5: Marks and Channels</i> are referred.
+<br><br>
+</text>
+
+<h3 style="color: teal">Insights from the visualisation & Critical discussion</h3>
+<text>
+    Recall questions mentioned before, insights can be:<br>
+    (1) It seems temperatures are not very relevant to PM2.5, although from 2011 to 2013 both lines have similar tendencies.
+    There may be other reasons affecting the PM2.5 in 2010 and 2014.<br>
+    (2) It is easy to find in days with no combined wind or southeast wind, PM2.5 are higher. This can help people to
+    detect other sources of air pollutions. For example, maybe the wind bring unhealthy air from southeast cities into Beijing.
+    In days with no wind, PM2.5 are still high. This may because Beijing itself have heavy air pollution problems.<br>
+    (3) In general, winters (Nov, Dec, Jan, Feb) have more serious air pollutions than other seasons. This may because the usage of
+    coals increases in winters.<br><br>
+
+    There are mainly two things the visualisation should improve:<br>
+    (1) There is no enough comparisons about temperatures-PM2.5 relationships. Data points used are only five. However, it is not practical to
+    display all 43,825 data points on a web page. To deal with this problem, an easy way is to calculate monthly sums of PM2.5.
+    However, this will cause concerns on the distinguish of seasons and temperatures. For example, winters' high PM2.5 does not imply
+    low temperatures will help PM2.5 increase. So, so far, the best way to deal with this problem is to collect PM2.5 information in more
+    years.<br>
+    (2) The relationship of wind-PM2.5 can be improved by maps. Although bar charts are more intuitive than maps, for one of purposes
+    to do this part —— detect whether air pollutions in Beijing are caused by other cities to an extent, maps with cities' names can help readers
+    to think about it. Readers can easily give a rough judgement by common senses about cities. For example, if a big industrial city
+    is near to Beijing and the visualisation points out the wind from that direction has a higher PM2.5 values, readers can detect it.
+
+
+
+    <br><br>
+</text>
+
+
+
+<h3 style="color: teal">Other Useful Links</h3>
 <a  style="font-size:16px;" href="https://en.wikipedia.org/wiki/Particulates" class="button">What is PM2.5</a>
 <a  style="font-size:16px;" href="http://aqicn.org/city/beijing/" class="button">PM2.5 report by US Embassy in Beijing</a>
 <a  style="font-size:16px;" href="https://www.bbc.co.uk/search?q=pm2.5" class="button">BBC News about PM2.5 </a>
